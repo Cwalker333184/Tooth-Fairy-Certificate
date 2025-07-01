@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Lost Tooth Certificate Generator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for whimsical styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Dancing+Script:wght@400;700&family=Charmonman:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- html2canvas CDN for image download functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-teal-100 via-yellow-100 to-indigo-100 p-4 sm:p-8 flex flex-col items-center justify-center font-inter text-gray-800">
+
+    <h1 class="text-4xl sm:text-5xl font-dancing-script text-indigo-700 mb-6 text-center drop-shadow-lg">
+        Create Your Magical Lost Tooth Certificate!
+    </h1>
+
+    <!-- Input Fields -->
+    <div class="bg-white p-6 rounded-xl shadow-lg mb-8 w-full max-w-md border border-gray-200">
+        <div class="mb-4">
+            <label for="childNameInput" class="block text-sm font-medium text-gray-700 mb-1">Child's Full Name:</label>
+            <input
+                type="text"
+                id="childNameInput"
+                placeholder="Enter child's name"
+                class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition duration-200"
+            />
+        </div>
+        <div class="mb-4">
+            <label for="toothLostInput" class="block text-sm font-medium text-gray-700 mb-1">Tooth Lost (e.g., First Wobbly Tooth):</label>
+            <input
+                type="text"
+                id="toothLostInput"
+                placeholder="e.g., First Wobbly Tooth"
+                class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition duration-200"
+            />
+        </div>
+        <div class="mb-4">
+            <label for="dateLostInput" class="block text-sm font-medium text-gray-700 mb-1">Date of Loss:</label>
+            <input
+                type="date"
+                id="dateLostInput"
+                class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition duration-200"
+            />
+        </div>
+        <div class="mb-4">
+            <label for="rewardInput" class="block text-sm font-medium text-gray-700 mb-1">Special Token/Reward:</label>
+            <input
+                type="text"
+                id="rewardInput"
+                placeholder="e.g., A Shiny Coin, A Magical Surprise"
+                class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 transition duration-200"
+            />
+        </div>
+        <div class="flex justify-center space-x-4">
+            <button
+                id="downloadButton"
+                class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out flex items-center"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Certificate
+            </button>
+        </div>
+    </div>
+
+    <!-- Certificate Display Area -->
+    <div
+        id="certificateDisplay"
+        class="w-full max-w-3xl bg-white p-8 sm:p-12 rounded-xl certificate-border relative overflow-hidden text-center"
+        style="min-height: 600px;"
+    >
+        <!-- Whimsical background pattern -->
+        <div class="certificate-background-pattern"></div>
+        <!-- Fairy Dust effect -->
+        <div class="fairy-dust-overlay"></div>
+
+
+        <h1 id="certificateTitle" class="text-5xl sm:text-6xl font-dancing-script text-indigo-700 mb-4 drop-shadow-md"
+            style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 10px rgba(255,255,255,0.7);">
+            The Official Tooth Fairy Certificate
+        </h1>
+        <p class="text-lg sm:text-xl font-charmonman text-slate-600 mb-8">
+            Presented with great joy and a sprinkle of fairy dust to:
+        </p>
+
+        <div class="mb-6">
+            <p id="childNameDisplay" class="text-3xl sm:text-4xl font-dancing-script text-sky-700 inline-block px-4 pb-1">
+                [Child's Full Name Here]
+            </p>
+        </div>
+
+        <p class="text-lg sm:text-xl font-charmonman text-gray-700 mb-2">
+            For bravely losing your
+        </p>
+        <div class="mb-6">
+            <p id="toothLostDisplay" class="text-2xl sm:text-3xl font-dancing-script text-lime-600 inline-block px-4 pb-1">
+                [e.g., First Wobbly Tooth]!
+            </p>
+        </div>
+
+        <p class="text-lg sm:text-xl font-charmonman text-gray-700 mb-2">
+            **Date of Grand Tooth Departure:**
+        </p>
+        <div class="mb-6">
+            <p id="dateLostDisplay" class="text-2xl sm:text-3xl font-dancing-script text-amber-600 inline-block px-4 pb-1">
+                [Month Day, Year]
+            </p>
+        </div>
+
+        <p class="text-lg sm:text-xl font-charmonman text-gray-700 mb-6">
+            This precious tooth has been safely collected and is now on its way to the Tooth Fairy Kingdom, where it will help create new stars and wishes! We've heard wonderful tales of your excellent brushing and wonderful smile. Keep up the fantastic work taking care of your beautiful new teeth.
+        </p>
+
+        <p class="text-lg sm:text-xl font-charmonman text-gray-700 mb-2">
+            In recognition of your courage and this momentous milestone, please accept this special token of appreciation:
+        </p>
+        <div class="mb-8">
+            <p id="rewardDisplay" class="text-3xl sm:text-4xl font-dancing-script text-fuchsia-600 inline-block px-4 pb-1">
+                [e.g., A Shiny Coin / A Magical Surprise]
+            </p>
+        </div>
+
+        <div class="mt-8">
+            <p class="text-lg sm:text-xl font-charmonman text-slate-600 mb-2">
+                With much love and a flutter of wings,
+            </p>
+            <p class="text-3xl sm:text-4xl font-dancing-script text-purple-700 mt-4 mb-2 drop-shadow-sm">
+                Chief Tooth Collector
+            </p>
+            <p class="text-md sm:text-lg text-gray-600 font-charmonman">
+                of the Whispering Woods
+            </p>
+        </div>
+    </div>
+
+    <!-- Link to your custom JavaScript file -->
+    <script src="js/script.js"></script>
+</body>
+</html>

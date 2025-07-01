@@ -1,0 +1,61 @@
+/* Custom fonts */
+.font-inter { font-family: 'Inter', sans-serif; }
+.font-dancing-script { font-family: 'Dancing Script', cursive; }
+.font-charmonman { font-family: 'Charmonman', cursive; }
+
+/* Custom styles for certificate borders and shadows */
+.certificate-border {
+    border: 8px solid;
+    border-image: linear-gradient(to right, #87CEEB, #A2D9CE, #F7DC6F, #F1948A) 1; /* More unisex, softer gradient */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2), 0 0 0 10px rgba(255,255,255,0.5) inset; /* More pronounced shadow and inner glow */
+    position: relative;
+    z-index: 1;
+}
+
+/* Subtle background pattern/texture */
+.certificate-background-pattern {
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zm0-30V0H4v4H0v2h4v4h2V6h4V4H6z"%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+/* Fairy Dust Overlay */
+.fairy-dust-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Below content, above background pattern */
+    background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="10" cy="10" r="1" fill="%23FFD700" opacity="0.4"%3E%3C/circle%3E%3Ccircle cx="5" cy="15" r="0.8" fill="%23ADD8E6" opacity="0.4"%3E%3C/circle%3E%3Ccircle cx="15" cy="5" r="0.6" fill="%23FFC0CB" opacity="0.4"%3E%3C/circle%3E%3C/svg%3E');
+    background-size: 100px 100px; /* Adjust density of dust particles */
+    animation: twinkle 5s infinite alternate; /* Subtle animation for dust */
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.02); }
+    100% { opacity: 0.8; transform: scale(1); }
+}
+
+/* General whimsical styling for buttons */
+button {
+    transition: all 0.3s ease;
+    filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.2));
+}
+button:hover {
+    filter: drop-shadow(5px 5px 8px rgba(0,0,0,0.3));
+}
+
+/* Ensure canvas is responsive */
+/* The canvas element is removed, so this rule is no longer directly applicable */
+canvas {
+    touch-action: none; /* Prevents scrolling/zooming on touch devices while drawing */
+}
+
+/* Removed the .underline-style rule as requested */
